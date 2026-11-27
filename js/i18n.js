@@ -132,7 +132,9 @@ const translations = {
     'norm': 'norm',
     'set by a choice above': 'set by a choice above',
     'credits': '© 2026 Prof. Dr. Dirk Brounen, Dr. Xudong Sun (Maastricht University) and Prof. Dr. Arno van der Vlist (University of Groningen/Amsterdam School of Real Estate) · Data: CBS, DNB, ECB, CPB, Belastingdienst',
-    'Source code (open source)': 'Source code (open source)'
+    'Source code (open source)': 'Source code (open source)',
+    'Open source': 'Open source',
+    'Source code on': 'Source code on'
   },
   nl: {
     // Main UI
@@ -266,7 +268,9 @@ const translations = {
     'norm': 'norm',
     'set by a choice above': 'bepaald door een keuze hierboven',
     'credits': '© 2026 prof. dr. Dirk Brounen, dr. Xudong Sun (Universiteit Maastricht) en prof. dr. Arno van der Vlist (Rijksuniversiteit Groningen/Amsterdam School of Real Estate) · Data: CBS, DNB, ECB, CPB, Belastingdienst',
-    'Source code (open source)': 'Broncode (open source)'
+    'Source code (open source)': 'Broncode (open source)',
+    'Open source': 'Open source',
+    'Source code on': 'Broncode op'
   }
 };
 
