@@ -163,10 +163,14 @@ function renderNav() {
   </nav>`;
 }
 
-// Whose work this is and where the data comes from, under the last table. It
-// is drawn with the rest, so it follows the language the reader picked.
+const SOURCE_URL = 'https://github.com/Investeringsklimaat/Monitor-Investeringsklimaat-Middenhuur';
+
+// Whose work this is, where the data comes from and where the code is, under
+// the last table. It is drawn with the rest, so it follows the language the
+// reader picked.
 function renderCredits() {
-  return `<p class="dp-credits">${esc(t('credits'))}</p>`;
+  return `<p class="dp-credits">${esc(t('credits'))} · ${esc(t('Source code (open source)'))}: `
+    + `<a href="${SOURCE_URL}" target="_blank" rel="noopener">GitHub</a></p>`;
 }
 
 function render() {
