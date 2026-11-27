@@ -1,0 +1,50 @@
+/* demo.css - Demo mode: the switch in the header, and the notes beside the page. */
+
+.hv-demo { display: inline-flex; align-items: center; gap: 6px; cursor: pointer; }
+.hv-demo-switch {
+    position: relative; width: 22px; height: 12px; border: 1px solid #8a8a8a; background: #fff;
+    transition: background .12s, border-color .12s;
+}
+.hv-demo-switch::after {
+    content: ''; position: absolute; top: 1px; left: 1px; width: 8px; height: 8px;
+    background: #8a8a8a; transition: transform .12s, background .12s;
+}
+.hv-demo[aria-pressed="true"] .hv-demo-switch { background: #4263eb; border-color: #4263eb; }
+.hv-demo[aria-pressed="true"] .hv-demo-switch::after { transform: translateX(10px); background: #fff; }
+.hv-demo[aria-pressed="true"] { color: #1a1a1a; }
+
+/* a note beside the page, the way a comment sits beside a document */
+.demo-note {
+    position: fixed; z-index: 1001; pointer-events: none; box-sizing: border-box;
+    /* see-through, so what lies under a note still shows */
+    background: rgba(255, 255, 255, .8); border: 1px solid #c7cbd1; border-left: 3px solid #4263eb;
+    padding: 7px 9px; font-size: 11.5px; line-height: 1.45; color: #1a1a1a;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .08);
+}
+.demo-note[hidden] { display: none; }
+.demo-leader {
+    position: fixed; left: 0; top: 0; z-index: 1000; pointer-events: none; overflow: visible;
+}
+.demo-leader path { stroke: #4263eb; stroke-width: 1; fill: none; }
+.demo-leader circle { fill: #4263eb; stroke: #fff; stroke-width: 1.5; }
+
+/* on a phone: over the page, until the next tap */
+.demo-note.demo-step {
+    z-index: 1003; font-size: 12.5px; padding: 10px 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, .18);
+}
+.demo-shield {
+    position: fixed; inset: 0; z-index: 1002; background: rgba(17, 24, 39, .18); touch-action: none;
+}
+.demo-ring { position: fixed; border: 2px solid #4263eb; pointer-events: none; }
+
+/* on a phone or a tablet the header row has no room for the word: the switch
+   alone, still named for a screen reader */
+@media (max-width: 1000px), (hover: none) {
+    .hv-demo-label {
+        position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0);
+        white-space: nowrap;
+    }
+}
+
+@media print { .demo-note, .demo-leader, .demo-shield { display: none !important; } }

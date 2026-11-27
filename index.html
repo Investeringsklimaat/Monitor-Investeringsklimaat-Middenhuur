@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="Monitor Investeringsklimaat Middenhuur">Monitor Investeringsklimaat Middenhuur</title>
+    <meta name="description" content="The return on a mid-rent dwelling in the Netherlands, per purchase year, against the return it has to earn.">
+    <!-- Both charts (main IRR chart and 3-year window) are drawn with ECharts -->
+    <script src="vendor/echarts/echarts.min.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/prettier-sliders.css">
+    <link rel="stylesheet" href="css/modern-theme.css">
+    <link rel="stylesheet" href="css/data-page.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/curve-editor.css">
+    <link rel="stylesheet" href="css/demo.css">
+</head>
+
+<body>
+
+    <!-- Header: page tabs, and the utilities (demo mode, language) small on the right -->
+    <header class="hv-header">
+        <nav class="hv-tabs" aria-label="Pages">
+            <button class="tab-button active" data-tab="main-analysis" data-i18n="Main analysis">Historie</button>
+            <button class="tab-button" data-tab="three-year" data-i18n="3-year window">3 Jaar Focus</button>
+            <button class="tab-button" data-tab="data-sources" data-i18n="Data">Data</button>
+        </nav>
+        <div class="hv-utils">
+            <!-- Demo mode: hints beside what can be dragged, typed or clicked
+                 (js/modules/demo.js); on until switched off -->
+            <button type="button" class="hv-util hv-demo" id="demo-toggle" aria-pressed="true"><span class="hv-demo-switch" aria-hidden="true"></span><span class="hv-demo-label" data-i18n="Demo mode">Demomodus</span></button>
+            <span class="hv-lang">
+                <button class="lang-btn active" data-lang="nl">NL</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </span>
+        </div>
+    </header>
+
+    <!-- What the analysis tabs show: the investor type, its taxes and the DCF
+         settings. Hidden on the Data tab. -->
+    <section class="hv-lens" id="analysis-bar">
+        <div class="hv-lens-row">
+            <div class="hv-types" role="group" aria-label="Investor type">
+                <button class="investor-preset-btn" data-preset="institutional" data-i18n="Institutional">Institutioneel</button>
+                <button class="investor-preset-btn" data-preset="private" data-i18n="Private">Particulier</button>
+                <button class="investor-preset-btn" data-preset="foreign" data-i18n="Foreign">Buitenlands</button>
+            </div>
+            <div class="hv-lens-actions">
+                <div class="hv-dcf-pair" role="group" aria-label="DCF">
+                    <button class="hv-action" id="customize-dcf-btn" data-i18n="Quick DCF adjustment">DCF snel aanpassen</button>
+                </div>
+            </div>
+        </div>
+        <!-- Settings of the active investor type: a toggle row with a summary,
+             collapsed until opened. Rendered by js/modules/investor-panel.js. -->
+        <section id="nc-panel" class="nc-panel" hidden></section>
+        <!-- Taxes in force for the active investor type; Box 3 at the LTV set -->
+        <div id="investor-regime-readout" class="investor-regime-readout" data-i18n="No investor type selected">Geen beleggerstype geselecteerd</div>
+    </section>
+
+
+    <!-- Tab Content -->
+    <div class="tab-content" id="main-analysis" style="display: block;">
+
+    <!-- Per-year values of one parameter, edited on a line chart
+         (js/modules/curve-editor.js). The tabs set the hidden select,
+         which the rest of the page reads. -->
+    <div class="time-variants tv-editor">
+        <div class="tv-head">
+            <div class="tv-tabs" role="tablist">
+                <button type="button" class="tv-tab" role="tab" data-param="mortgage_rate" aria-selected="true" data-i18n="Mortgage rate">Hypotheekrente</button>
+                <button type="button" class="tv-tab" role="tab" data-param="monthly_rent" aria-selected="false" data-i18n="Average monthly rent">Maandhuur</button>
+                <button type="button" class="tv-tab" role="tab" data-param="cpb_inflation" aria-selected="false" data-i18n="Basic inflation">Inflatie</button>
+                <button type="button" class="tv-tab" role="tab" data-param="property_price" aria-selected="false" data-i18n="Property price">Transactieprijs</button>
+                <button type="button" class="tv-tab" role="tab" data-param="transfer_tax" aria-selected="false" data-i18n="Transfer tax">Overdrachtsbelasting</button>
+            </div>
+            <select id="time-variant-param" class="select-input" hidden>
+                <option value="mortgage_rate">mortgage_rate</option>
+                <option value="monthly_rent">monthly_rent</option>
+                <option value="cpb_inflation">cpb_inflation</option>
+                <option value="property_price">property_price</option>
+                <option value="transfer_tax">transfer_tax</option>
+            </select>
+            <div class="tv-actions">
+                <button id="reset-slider-param" class="tv-btn" data-i18n="Reset This Parameter">Reset Deze Parameter</button>
+                <button id="reset-defaults" class="tv-btn" data-i18n="Reset to Default">Standaard Herstellen</button>
+            </div>
+        </div>
+        <div class="tv-sub">
+            <span class="tvp-sensitivity"><span data-i18n="Sensitivity:">Gevoeligheid:</span> <span id="tvp-sensitivity-value">+0.00</span>% <span data-i18n="Return">Rendement</span> <span data-i18n="for 1% increase">voor 1% stijging</span></span>
+        </div>
+        <div id="vertical-sliders-container"></div>
+    </div>
+
+    <!-- IRR & CAPM Norm Chart -->
+    <div class="chart-container">
+        <div class="chart-head">
+            <h4 style="margin: 0;" data-i18n="IRR Analysis">IRR analyse</h4>
+            <div class="chart-type-toggle">
+                <button class="toggle-btn active" data-chart-type="line" id="line-chart-btn" data-i18n="Line Chart">
+                    Lijngrafiek
+                </button>
+                <button class="toggle-btn" data-chart-type="boxplot" id="boxplot-btn" data-i18n="Box Plot">
+                    Boxplot
+                </button>
+            </div>
+        </div>
+        <!-- ECharts renders into a div, not a canvas -->
+        <div id="returnChart"></div>
+    </div>
+    <p class="chart-note" data-i18n="Cloud note">De blauwe lijn is de schatting van de Monitor op basis van actuele data en het model; het rendement van individuele beleggers varieert daaromheen, zoals de stippen laten zien.</p>
+
+    </div> <!-- End of main-analysis tab -->
+
+    <!-- 3-Year Window Tab -->
+    <div class="tab-content" id="three-year" style="display: none;">
+        <div class="window-container">
+            <!-- Left Panel: Chart -->
+            <div class="window-left-panel">
+                <div class="window-header">
+                    <label for="window-year-select" data-i18n="Select Year:">Selecteer Jaar:</label>
+                    <!-- Previous / next year beside the selector, clear of the chart -->
+                    <span class="window-year-nav">
+                        <button id="window-prev-year" class="window-nav-btn window-nav-prev" data-i18n-title="Previous Year" title="Vorig Jaar">‹</button>
+                        <select id="window-year-select" class="window-year-select">
+                            <!-- Options populated by JavaScript -->
+                        </select>
+                        <button id="window-next-year" class="window-nav-btn window-nav-next" data-i18n-title="Next Year" title="Volgend Jaar">›</button>
+                    </span>
+                </div>
+
+                <div class="window-chart-wrapper">
+                    <div id="window-chart"></div>
+                </div>
+
+                <div id="window-irr-values" class="window-irr-values">
+                    <!-- IRR values populated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Right Panel: Sensitivity Analysis -->
+            <div class="window-right-panel">
+                <h3><span data-i18n="Parameter Impact at">Parameter-effect in</span> <span id="window-selected-year">2016</span></h3>
+                <div id="window-sensitivities" class="window-sensitivities">
+                    <!-- Sensitivities populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Data Tab: every series the model reads, and its source -->
+    <div class="tab-content" id="data-sources" style="display: none;">
+        <div id="data-page" class="data-page"></div>
+    </div>
+
+    <!-- DCF Customization Modal -->
+    <div id="dcf-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 data-i18n="DCF">DCF</h2>
+
+            <div class="modal-body">
+                <h3 data-i18n="Expected IRR Parameters">Verwachte IRR Parameters</h3>
+                <div class="modal-control-group">
+                    <label for="modal-ltv-slider"><span data-i18n="LTV">LTV</span>: <span class="modal-value-container"><input type="text" id="modal-ltv-value" class="modal-value-input" value="40"><span class="modal-value-unit">%</span></span></label>
+                    <input type="range" min="0" max="90" value="40" class="slider" id="modal-ltv-slider">
+                    <div class="sensitivity-info"><span id="modal-ltv-sensitivity">+0.00</span>% <span data-i18n="for 1% increase">voor 1% stijging</span></div>
+                </div>
+
+                <div class="modal-control-group">
+                    <label for="modal-mortgage-spread-slider"><span data-i18n="Mortgage Spread">Mortgage Spread</span>: <span class="modal-value-container"><input type="text" id="modal-mortgage-spread-value" class="modal-value-input" value="1.53"><span class="modal-value-unit">%</span></span></label>
+                    <input type="range" min="-100" max="500" value="153" step="1" class="slider" id="modal-mortgage-spread-slider">
+                    <div class="sensitivity-info" data-i18n="Added to base mortgage rate">Toegevoegd aan basis hypotheekrente</div>
+                </div>
+
+                <div class="modal-control-group">
+                    <label for="modal-opcost-slider"><span data-i18n="Op Cost">Op Kosten</span>: <span class="modal-value-container"><input type="text" id="modal-opcost-value" class="modal-value-input" value="23"><span class="modal-value-unit">%</span></span></label>
+                    <input type="range" min="10" max="50" value="23" class="slider" id="modal-opcost-slider">
+                    <div class="sensitivity-info"><span id="modal-opcost-sensitivity">+0.00</span>% <span data-i18n="for 1% increase">voor 1% stijging</span></div>
+                </div>
+
+                <div class="modal-control-group">
+                    <label for="modal-period-slider"><span data-i18n="Period">Periode</span>: <span class="modal-value-container"><input type="text" id="modal-period-value" class="modal-value-input" value="15"><span class="modal-value-unit">yrs</span></span></label>
+                    <input type="range" min="5" max="30" value="15" class="slider" id="modal-period-slider">
+                    <div class="sensitivity-info"><span id="modal-period-sensitivity">+0.00</span>% <span data-i18n="for +1 year">voor +1 jaar</span></div>
+                </div>
+
+                <div class="modal-control-group">
+                    <label for="modal-rent-spread-slider"><span data-i18n="Rent: CPB+">Huuropslag Inflatie+</span> <span class="modal-value-container"><input type="text" id="modal-rent-spread-value" class="modal-value-input" value="1.0"><span class="modal-value-unit">%</span></span></label>
+                    <input type="range" min="-20" max="150" value="10" step="1" class="slider" id="modal-rent-spread-slider">
+                    <div class="sensitivity-info" data-i18n="Rent growth = CPB + spread">Huurgroei = CPB + opslag</div>
+                </div>
+
+                <div class="modal-control-group">
+                    <label for="modal-longterm-inflation-slider"><span data-i18n="LT Inflation">Lange Termijn Inflatie (CPB)</span>: <span class="modal-value-container"><input type="text" id="modal-longterm-inflation-value" class="modal-value-input" value="2.2"><span class="modal-value-unit">%</span></span></label>
+                    <input type="range" min="5" max="100" value="22" step="1" class="slider" id="modal-longterm-inflation-slider">
+                    <div class="sensitivity-info" data-i18n="For years beyond 2026">Voor jaren na 2026</div>
+                </div>
+
+                <div class="modal-control-group">
+                    <label for="use-cpb-exit-checkbox" style="display: flex; align-items: center; justify-content: flex-start; cursor: pointer;">
+                        <input type="checkbox" id="use-cpb-exit-checkbox" checked style="width: 16px; height: 16px; margin: 0 8px 0 0; cursor: pointer; flex-shrink: 0;">
+                        <span style="flex: 1;" data-i18n="Use CPB-based Growth">Gebruik CPB-gebaseerde Groei</span>
+                    </label>
+                    <div class="sensitivity-info" data-i18n="If checked: Rent &amp; Exit use CPB inflation; If unchecked: Use historical Rent Growth &amp; Property Price Growth">Indien aangevinkt: Huur &amp; Exit gebruiken CPB inflatie; Indien niet aangevinkt: Gebruik historische Huurgroei &amp; Woningprijsgroei</div>
+                </div>
+
+                <h3 data-i18n="CAPM Norm Parameters">CAPM Norm</h3>
+                <div class="modal-control-group">
+                    <label for="modal-beta-slider"><span data-i18n="Beta">Beta</span>: <span class="modal-value-container"><input type="text" id="modal-beta-value" class="modal-value-input" value="0.63"><span class="modal-value-unit"></span></span></label>
+                    <input type="range" min="30" max="100" value="63" class="slider" id="modal-beta-slider">
+                </div>
+
+                <div class="modal-control-group">
+                    <label for="modal-liq-premium-slider"><span data-i18n="Liq premium">Liq Premie</span>: <span class="modal-value-container"><input type="text" id="modal-liq-premium-value" class="modal-value-input" value="0.25"><span class="modal-value-unit">%</span></span></label>
+                    <input type="range" min="0" max="100" value="25" class="slider" id="modal-liq-premium-slider">
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button class="modal-button apply" id="apply-dcf-changes" data-i18n="Apply Changes">Wijzigingen Toepassen</button>
+                <button class="modal-button cancel" id="cancel-dcf-changes" data-i18n="Close">Sluiten</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/i18n.js"></script>
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+[
+ {
+  "Year": 2010,
+  "ERP": 5.2,
+  "Beta": 0.63,
+  "Rf": 5.2,
+  "LiqPremium": 0.25
+ },
+ {
+  "Year": 2011,
+  "ERP": 6.01,
+  "Beta": 0.63,
+  "Rf": 4.9,
+  "LiqPremium": 0.25
+ },
+ {
+  "Year": 2012,
+  "ERP": 5.78,
+  "Beta": 0.63,
+  "Rf": 5.1,
+  "LiqPremium": 0.25
+ },
+ {
+  "Year": 2013,
+  "ERP": 4.96,
+  "Beta": 0.63,
+  "Rf": 5.0,
+  "LiqPremium": 0.25
+ },
+ {
+  "Year": 2014,
+  "ERP": 5.78,
+  "Beta": 0.63,
+  "Rf": 4.8,
+  "LiqPremium": 0.25
+ },
+ {
+  "Year": 2015,
+  "ERP": 6.12,
+  "Beta": 0.63,
+  "Rf": 3.9,
+  "LiqPremium": 0.25
+ },
+ {
+  "Year": 2016,
+  "ERP": 5.69,
+  "Beta": 0.63,
+  "Rf": 3.3,
+  "LiqPremium": 0.25
+ },
+ {
+  "Year": 2017,
+  "ERP": 5.08,
+  "Beta": 0.63,
+  "Rf": 2.8,
+  "LiqPremium": 0.25
+ },
+ {
+  "Year": 2018,
+  "ERP": 5.96,
+  "Beta": 0.63,
+  "Rf": 2.9,
+  "LiqPremium": 0.25
+ },
+ {
+  "Year": 2019,
+  "ERP": 5.2,
+  "Beta": 0.63,
+  "Rf": 2.8,
+  "LiqPremium": 0.25
+ },
+ {
+  "Year": 2020,
+  "ERP": 4.72,
+  "Beta": 0.63,
+  "Rf": 2.2,
+  "LiqPremium": 0.25
+ },
+ {
+  "Year": 2021,
+  "ERP": 4.24,
+  "Beta": 0.63,
+  "Rf": 1.9,
+  "LiqPremium": 0.25
+ },
+ {
+  "Year": 2022,
+  "ERP": 5.94,
+  "Beta": 0.63,
+  "Rf": 1.8,
+  "LiqPremium": 0.25
+ },
+ {
+  "Year": 2023,
+  "ERP": 4.6,
+  "Beta": 0.63,
+  "Rf": 3.1,
+  "LiqPremium": 0.25
+ },
+ {
+  "Year": 2024,
+  "ERP": 4.33,
+  "Beta": 0.63,
+  "Rf": 3.2,
+  "LiqPremium": 0.25
+ },
+ {
+  "Year": 2025,
+  "ERP": 4.33,
+  "Beta": 0.63,
+  "Rf": 2.73,
+  "LiqPremium": 0.25
+ },
+ {
+  "Year": 2026,
+  "ERP": 4.2,
+  "Beta": 0.63,
+  "Rf": 3.56,
+  "LiqPremium": 0.25
+ }
+]

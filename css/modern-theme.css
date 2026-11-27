@@ -1,0 +1,789 @@
+/* Modern Theme - JetBrains Style */
+
+/* JetBrains Mono, served from vendor/jetbrains-mono */
+@import url('../vendor/jetbrains-mono/jetbrains-mono.css');
+
+/* Global Font Override */
+* {
+    font-family: 'JetBrains Mono', monospace !important;
+}
+
+/* Language Switcher & Top Navigation */
+.top-navigation {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 10px 20px;
+    border-bottom: 2px solid #333;
+}
+
+.language-switcher {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.lang-btn {
+    font-family: 'JetBrains Mono', monospace;
+    padding: 6px 12px;
+    background: white;
+    border: 2px solid #333;
+    color: #333;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.lang-btn:hover {
+    background: #f0f0f0;
+}
+
+.lang-btn.active {
+    background: #333;
+    color: white;
+}
+
+.tab-navigation {
+    flex: 1;
+    display: flex;
+    gap: 10px;
+}
+
+
+body {
+    font-family: 'JetBrains Mono', monospace !important;
+    background-color: #f5f5f5;
+    color: #1a1a1a;
+}
+
+/* Tab Navigation - Sharp edges, modern style */
+.tab-navigation {
+    border-radius: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.tab-button {
+    border-radius: 0;
+    background-color: transparent;
+    color: #555;
+    font-weight: 400;
+    font-size: 13px;
+    padding: 12px 24px;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.tab-button:hover {
+    background-color: #f0f0f0;
+    color: #000;
+}
+
+.tab-button.active {
+    background-color: transparent;
+    color: #000;
+    font-weight: 600;
+    border-bottom: 2px solid #000;
+}
+
+/* Customize DCF Button */
+.customize-dcf-btn {
+    border-radius: 0;
+    border: 1px solid #333;
+    background-color: #fff;
+    color: #333;
+    font-weight: 500;
+    font-size: 13px;
+    padding: 10px 20px;
+    transition: all 0.2s ease;
+}
+
+.customize-dcf-btn:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Investor-type preset buttons (in tab bar, replacing forecast tab) */
+
+.investor-preset-btn {
+    border-radius: 0;
+    border: 1px solid #bbb;
+    background-color: #fff;
+    color: #555;
+    font-weight: 400;
+    font-size: 12px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.investor-preset-btn:hover {
+    border-color: #333;
+    color: #000;
+}
+
+.investor-preset-btn.active {
+    background-color: #333;
+    border-color: #333;
+    color: #fff;
+    font-weight: 600;
+}
+
+/* Active tax regime, one line under the investor-type buttons. flex-basis 100%
+   drops it onto its own row instead of competing with the buttons for width. */
+.tab-navigation {
+    flex-wrap: wrap;
+}
+
+.investor-regime-readout {
+    flex-basis: 100%;
+    font-size: 11px;
+    color: #888;
+    padding: 2px 0 4px 0;
+    letter-spacing: 0.01em;
+}
+
+.investor-regime-readout.has-regime {
+    color: #333;
+}
+
+/* Modal - Sharp, clean design */
+.modal-content {
+    border-radius: 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    border: 1px solid #e0e0e0;
+    max-width: 450px;
+    padding: 0;
+}
+
+.modal-content h2 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1a1a1a;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 12px 15px;
+    margin: 0;
+}
+
+.modal-content h3 {
+    font-size: 11px;
+    font-weight: 600;
+    color: #333;
+    margin: 15px 0 8px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.close-modal {
+    border-radius: 0;
+    font-size: 20px;
+    color: #666;
+    transition: color 0.2s ease;
+    top: 10px;
+    right: 10px;
+}
+
+.close-modal:hover {
+    color: #000;
+}
+
+.modal-body {
+    padding: 15px;
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+/* Modal Control Groups - Use vertical slider style (horizontal) */
+.modal-control-group {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #fafafa;
+    border: 1px solid #e8e8e8;
+}
+
+.modal-control-group label {
+    font-size: 10px;
+    font-weight: 500;
+    color: #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+/* Modal Sliders - Styled like vertical sliders (horizontal) */
+.modal-control-group input[type="range"] {
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, #e0e0e0 0%, #e0e0e0 100%);
+    border: 1px solid #d0d0d0;
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 5px 0;
+}
+
+.modal-control-group input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 18px;
+    background: #333;
+    cursor: pointer;
+    border: none;
+    transition: background 0.2s ease;
+}
+
+.modal-control-group input[type="range"]::-webkit-slider-thumb:hover {
+    background: #000;
+}
+
+.modal-control-group input[type="range"]::-moz-range-thumb {
+    width: 12px;
+    height: 18px;
+    background: #333;
+    cursor: pointer;
+    border: none;
+    border-radius: 0;
+    transition: background 0.2s ease;
+}
+
+.modal-control-group input[type="range"]::-moz-range-thumb:hover {
+    background: #000;
+}
+
+/* Modal Value Container */
+.modal-value-container {
+    background-color: #fff;
+    border: 1px solid #d0d0d0;
+    padding: 2px 6px;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 2px;
+    transition: border-color 0.2s ease;
+}
+
+.modal-value-container:hover {
+    border-color: #999;
+}
+
+.modal-value-container:has(.modal-value-input:focus) {
+    border-color: #333;
+}
+
+.modal-value-input {
+    border: none;
+    background: transparent;
+    font-size: 10px;
+    font-weight: 500;
+    width: 35px;
+    text-align: right;
+    color: #1a1a1a;
+}
+
+.modal-value-input:focus {
+    outline: none;
+}
+
+.modal-value-unit {
+    font-size: 10px;
+    color: #666;
+    font-weight: 400;
+}
+
+/* Sensitivity Info */
+.sensitivity-info {
+    font-size: 9px;
+    color: #666;
+    margin-top: 3px;
+    font-weight: 400;
+}
+
+/* Modal Buttons */
+.modal-button {
+    border-radius: 0;
+    padding: 8px 20px;
+    font-size: 11px;
+    font-weight: 500;
+    border: 1px solid #333;
+    transition: all 0.2s ease;
+}
+
+.modal-button.apply {
+    background-color: #333;
+    color: #fff;
+    border-color: #333;
+}
+
+.modal-button.apply:hover {
+    background-color: #000;
+    border-color: #000;
+}
+
+.modal-button.cancel {
+    background-color: #fff;
+    color: #333;
+    border-color: #999;
+}
+
+.modal-button.cancel:hover {
+    background-color: #f5f5f5;
+    border-color: #333;
+}
+
+.modal-footer {
+    padding: 12px 15px;
+    border-top: 1px solid #e0e0e0;
+    gap: 8px;
+}
+
+/* Chart Type Toggle: a small segmented control, not two buttons */
+.chart-type-toggle {
+    display: flex;
+    gap: 0;
+    border: 1px solid #333;
+}
+
+.toggle-btn {
+    border-radius: 0;
+    border: none;
+    border-right: 1px solid #333;
+    background-color: #fff;
+    color: #333;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 3px 10px;
+    line-height: 1.5;
+    transition: all 0.2s ease;
+}
+
+.toggle-btn:last-child {
+    border-right: none;
+}
+
+.toggle-btn:hover {
+    background-color: #f0f0f0;
+}
+
+.toggle-btn.active {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Select Inputs */
+.select-input,
+.window-year-select {
+    border-radius: 0;
+    border: 1px solid #d0d0d0;
+    background-color: #fff;
+    color: #333;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 8px 12px;
+    transition: border-color 0.2s ease;
+}
+
+.select-input:focus,
+.window-year-select:focus {
+    outline: none;
+    border-color: #333;
+}
+
+/* Chart Container */
+.chart-container {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    padding: 12px 16px 16px;
+    margin-bottom: 20px;
+    min-height: 620px;
+}
+
+/* Title and toggle on one line, with no room to spare above the chart */
+.chart-head {
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 12px; flex-wrap: wrap; margin-bottom: 2px;
+}
+.chart-head h4 { font-size: 13px; font-weight: 700; }
+/* the one line under the main chart that says what the dots are: under the
+   card, so the card keeps its fixed height and the chart its size */
+.chart-note { margin: -14px 2px 18px; font-size: 10.5px; line-height: 1.4; color: #8a8a8a; }
+
+/* The main IRR chart is an ECharts div; the 3-year window keeps its canvas. */
+.chart-container #returnChart {
+    width: 100%;
+    min-height: 580px;
+    height: 580px;
+}
+
+/* ECharts sizes its own canvas inline, so the global `canvas { height: auto
+   !important }` in responsive.css has to be overridden here or the chart
+   collapses to the canvas's intrinsic (device-pixel) height. */
+.chart-container #returnChart canvas {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+}
+
+/* 3-Year Window Panels */
+.window-left-panel,
+.window-right-panel {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 0;
+    padding: 20px;
+}
+
+.window-left-panel {
+    min-height: 600px;
+}
+
+.window-chart-wrapper {
+    min-height: 400px;
+    padding: 20px 0;
+}
+
+.window-chart-wrapper canvas {
+    min-height: 350px !important;
+}
+
+.window-header {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.window-header label {
+    font-size: 12px;
+    font-weight: 500;
+    color: #333;
+}
+
+.window-nav-btn {
+    border-radius: 0;
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 1px solid #333;
+    color: #333;
+    font-size: 18px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.window-nav-btn:hover:not(:disabled) {
+    background-color: #333;
+    color: #fff;
+}
+
+.window-nav-btn:disabled {
+    border-color: #ddd;
+    color: #ccc;
+}
+
+/* Sensitivity Items */
+.sensitivity-item {
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.sensitivity-label {
+    font-size: 11px;
+    font-weight: 500;
+    color: #333;
+}
+
+.sensitivity-value {
+    font-size: 11px;
+    font-weight: 600;
+}
+
+/* Checkbox styling */
+input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    border: 1px solid #333;
+    border-radius: 0;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: #fff;
+    position: relative;
+}
+
+input[type="checkbox"]:checked {
+    background-color: #333;
+}
+
+input[type="checkbox"]:checked::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* TVP Sensitivity */
+.tvp-sensitivity {
+    font-size: 12px;
+    font-weight: 400;
+    color: #666;
+}
+
+#tvp-sensitivity-value {
+    font-weight: 600;
+    color: #333;
+}
+
+/* Window IRR Values */
+.window-irr-value {
+    background-color: #fafafa;
+    border: 1px solid #e0e0e0;
+    border-radius: 0;
+    font-size: 11px;
+    transition: all 0.2s ease;
+}
+
+.window-irr-value.selected {
+    background-color: #333;
+    color: #fff;
+    border-color: #333;
+}
+
+.window-year-label {
+    font-size: 10px;
+    font-weight: 500;
+    color: #666;
+}
+
+.window-irr-label {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* Headers */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'JetBrains Mono', monospace !important;
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+h4 {
+    font-size: 14px;
+}
+
+/* Investor-type settings panel (static/js/modules/investor-panel.js).
+   Two columns as in the Glass Box sheets: the item with its number, typed over
+   via "edit", and the data behind it (reference, source, difference). Green and
+   red only on the difference note: higher or lower return than the reference.
+   Tax rows carry a rate and a source but no number to type over. */
+.nc-panel {
+    --nc-good: #0b7a0b;
+    --nc-bad: #c42e2e;
+    --nc-focus: #2a78d6;
+    background: #fff;
+    border: 2px solid #333;
+    margin: 12px 20px 0;
+    font-size: 12px;
+    color: #1a1a1a;
+}
+
+.nc-panel[hidden] {
+    display: none;
+}
+
+.nc-badge {
+    border: 1px solid #333;
+    padding: 0 6px;
+    font-size: 10px;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+}
+
+.nc-panel.collapsed .nc-body {
+    display: none;
+}
+
+.nc-group {
+    font-size: 10px;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    color: #707070;
+}
+
+.nc-group {
+    padding: 8px 14px 6px;
+    background: #fafafa;
+    border-top: 2px solid #e0e0e0;
+    font-weight: 600;
+    color: #4a4a4a;
+}
+
+.nc-static {
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.nc-name {
+    font-weight: 800;
+    font-size: 12.5px;
+}
+
+.nc-numline {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+}
+
+.nc-num {
+    font-size: 19px !important;
+    font-weight: 700;
+    border: 0;
+    background: transparent;
+    padding: 0 1px;
+    font-variant-numeric: tabular-nums;
+    color: #1a1a1a;
+}
+
+.nc-num[readonly] {
+    cursor: pointer;
+    outline: none;
+}
+
+.nc-num:not([readonly]) {
+    outline: 2px solid var(--nc-focus);
+    outline-offset: 2px;
+    cursor: text;
+}
+
+.nc-sign {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.nc-edit {
+    margin-left: 6px;
+    align-self: center;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    color: var(--nc-focus);
+    background: transparent;
+    border: 1px solid currentColor;
+    padding: 0 5px;
+    cursor: pointer;
+    line-height: 1.5;
+}
+
+.nc-edit:hover,
+.nc-edit[aria-pressed="true"] {
+    background: var(--nc-focus);
+    color: #fff;
+}
+
+.nc-seg {
+    display: inline-flex;
+    flex-wrap: wrap;
+    margin: 3px 0 2px;
+}
+
+.nc-seg button {
+    background: #fff;
+    border: 1.5px solid #333;
+    margin-left: -1.5px;
+    padding: 3px 9px;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #1a1a1a;
+}
+
+.nc-seg button:first-child {
+    margin-left: 0;
+}
+
+.nc-seg button[aria-pressed="true"] {
+    background: #333;
+    color: #fff;
+}
+
+.nc-src {
+    font-size: 10.5px;
+    color: #707070;
+}
+
+.nc-src a {
+    color: var(--nc-focus);
+    text-decoration: none;
+}
+
+.nc-diff {
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.nc-diff.up { color: var(--nc-good); }
+.nc-diff.down { color: var(--nc-bad); }
+.nc-diff.same { color: #707070; font-weight: 500; }
+
+@media (max-width: 760px) {
+    .nc-panel { margin: 10px 10px 0; }
+}
+
+/* Investor settings panel, compact: one block per item (label, value, source
+   line) in a wrapping grid; group headings as short rules. */
+.nc-body .nc-group {
+    padding: 8px 14px 4px;
+    background: transparent;
+    border-top: 0;
+    font-size: 10px;
+}
+.nc-body .nc-group ~ .nc-group { border-top: 1px solid #e0e0e0; margin-top: 2px; }
+.nc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 0;
+    padding: 0 6px 8px;
+}
+.nc-block {
+    display: grid;
+    align-content: start;
+    justify-items: start;
+    gap: 2px;
+    padding: 6px 8px;
+    min-width: 0;
+}
+.nc-block.nc-wide { grid-column: span 2; }
+.nc-block .nc-name { font-size: 11.5px; font-weight: 700; color: #1a1a1a; overflow-wrap: anywhere; }
+.nc-block .nc-numline { gap: 3px; align-items: baseline; flex-wrap: wrap; row-gap: 2px; }
+.nc-block .nc-num { font-size: 17px !important; }
+.nc-block .nc-static { font-size: 17px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.nc-block .nc-sign { font-size: 13px; }
+.nc-suffix { font-size: 11px; font-weight: 400; color: #707070; margin-left: 4px; white-space: nowrap; }
+.nc-block .nc-edit { margin-left: 6px; }
+.nc-block .nc-src { font-size: 10.5px; color: #8a8a8a; }
+.nc-block .nc-diff { font-size: 10.5px; }
+.nc-block .nc-seg { margin: 2px 0; }
+@media (max-width: 700px) {
+    .nc-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 0 2px 6px; }
+    .nc-block.nc-wide { grid-column: 1 / -1; }
+}
+
+/* 3-year window chart (ECharts draws into a div) */
+.window-chart-wrapper #window-chart { width: 100%; height: 380px; }
+
+/* Year navigation: ‹ [year] › in the header, not over the chart */
+.window-year-nav { display: inline-flex; align-items: stretch; }
+.window-year-nav .window-nav-btn {
+    position: static; transform: none; width: 32px; height: auto; min-height: 30px;
+    margin: 0; padding: 0; border-radius: 0; box-shadow: none; font-size: 16px; line-height: 1;
+}
+.window-year-nav .window-nav-btn:hover:not(:disabled) { transform: none; }
+.window-year-nav .window-nav-btn:disabled { background: #fff; border-color: #ddd; color: #ccc; cursor: default; }
+.window-year-nav .window-year-select { margin: 0 -1px; border-radius: 0; }
+.window-irr-value.selected .window-irr-label,
+.window-irr-value.selected .window-year-label { color: #fff; }

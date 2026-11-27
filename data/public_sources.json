@@ -1,0 +1,33 @@
+{
+ "_note": "Source names shown on the site: plain publisher names. 'links' names the publisher of a recorded link; 'series' and 'taxes' name the publisher of a Data-tab series or a tax. A value with no entry is shown without a source.",
+ "links": {
+  "https://www.cbs.nl/nl-nl/cijfers/detail/85773NED": "CBS",
+  "https://www.cbs.nl/nl-nl/cijfers/detail/70675ned": "CBS",
+  "https://data.ecb.europa.eu/data/datasets/MIR/MIR.M.NL.B.A2C.P.R.A.2250.EUR.N": "DNB",
+  "https://data.ecb.europa.eu/data/datasets/IRS/IRS.M.NL.L.L40.CI.0000.EUR.N.Z": "ECB",
+  "https://financieren.nl/hoeveel-eigen-geld-voor-vastgoed/": "financieren.nl",
+  "https://www.ey.com/content/dam/ey-unified-site/ey-com/nl-nl/campaigns/barometer-woningcorporaties/2026/documents/ey-barometer-nederlandse-woningcorporaties-2026.pdf": "EY",
+  "https://www.credion.eu/nl/learning-center/vastgoed-financieren-rente-wat-betaal-je-echt-voor-commercieel-vastgoed-in-2025": "Credion",
+  "https://aedes.nl/onterechtebelasting": "Aedes"
+ },
+ "series": {
+  "property_price": "CBS",
+  "price_growth": "CBS",
+  "rent_increase": "CBS",
+  "mortgage_rate": "DNB",
+  "cpb_inflation": "CPB",
+  "rf": "ECB",
+  "erp": "Damodaran",
+  "monthly_rent": "CBS",
+  "cpi": "CBS",
+  "bond_10y": "ECB",
+  "transfer_tax": "Belastingdienst"
+ },
+ "taxes": {
+  "transfer_tax": "Belastingdienst",
+  "corporate_tax": "Belastingdienst",
+  "box3": "Belastingdienst",
+  "vat": "Belastingdienst",
+  "landlord_levy": "Wetten.overheid.nl"
+ }
+}

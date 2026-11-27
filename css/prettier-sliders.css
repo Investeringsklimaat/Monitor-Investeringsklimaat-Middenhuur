@@ -1,0 +1,9 @@
+/* prettier-sliders.css - Clean, simple slider styling */
+
+/* Clean vertical sliders container */
+.vertical-sliders-container {
+    background: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+}
+

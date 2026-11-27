@@ -1,0 +1,356 @@
+{
+ "_note": "Every per-year series the model reads: where it is stored, what it feeds and where it comes from. Status per year: actual (published figure), forecast (published forecast), estimate (derived or extrapolated by us), assumption (chosen, no source), undocumented (source not recorded). A year without an entry takes the series default_status, else actual.",
+ "years": [
+  2010,
+  2026
+ ],
+ "groups": [
+  {
+   "id": "market",
+   "label": {
+    "en": "Housing market",
+    "nl": "Woningmarkt"
+   }
+  },
+  {
+   "id": "macro",
+   "label": {
+    "en": "Inflation",
+    "nl": "Inflatie"
+   }
+  },
+  {
+   "id": "finance",
+   "label": {
+    "en": "Financing",
+    "nl": "Financiering"
+   }
+  },
+  {
+   "id": "policy",
+   "label": {
+    "en": "Policy",
+    "nl": "Beleid"
+   }
+  },
+  {
+   "id": "capm",
+   "label": {
+    "en": "Required return (CAPM norm)",
+    "nl": "Rendementseis (CAPM-norm)"
+   }
+  }
+ ],
+ "series": [
+  {
+   "id": "property_price",
+   "group": "market",
+   "label": {
+    "en": "Average sale price, existing homes",
+    "nl": "Gemiddelde verkoopprijs bestaande koopwoningen"
+   },
+   "unit": "EUR",
+   "decimals": 0,
+   "store": {
+    "kind": "table",
+    "file": "avg_property_prices.json",
+    "year_field": "Perioden",
+    "field": "GemiddeldeVerkoopprijs",
+    "derived": {
+     "80Procent_GemiddeldeVerkoopprijs": "times_0_8",
+     "PrijsindexVerkoopprijzen": "scale"
+    }
+   },
+   "used": {
+    "en": "Purchase price = 0.8 × this",
+    "nl": "Aankoopprijs = 0,8 × deze waarde"
+   },
+   "source": {
+    "name": "CBS",
+    "url": "https://www.cbs.nl/nl-nl/cijfers/detail/85773NED"
+   }
+  },
+  {
+   "id": "price_growth",
+   "group": "market",
+   "label": {
+    "en": "Price change, existing homes (year on year)",
+    "nl": "Prijsontwikkeling bestaande koopwoningen (jaar op jaar)"
+   },
+   "unit": "%",
+   "decimals": 1,
+   "store": {
+    "kind": "table",
+    "file": "prop_price_growth.json",
+    "year_field": "Perioden",
+    "field": "Leegwaardeontwikkeling_t-1"
+   },
+   "used": {
+    "en": "Value growth, only with CPB-based growth switched off",
+    "nl": "Waardegroei, alleen zonder CPB-gebaseerde groei"
+   },
+   "source": {
+    "name": "CBS",
+    "url": "https://www.cbs.nl/nl-nl/cijfers/detail/85773NED"
+   }
+  },
+  {
+   "id": "monthly_rent",
+   "group": "market",
+   "label": {
+    "en": "Average monthly rent",
+    "nl": "Gemiddelde maandhuur"
+   },
+   "unit": "EUR",
+   "decimals": 2,
+   "store": {
+    "kind": "series",
+    "key": "monthly_rent"
+   },
+   "used": {
+    "en": "Year-1 rent = 12 × this",
+    "nl": "Huur in jaar 1 = 12 × deze waarde"
+   },
+   "source": {
+    "name": "CBS"
+   }
+  },
+  {
+   "id": "rent_increase",
+   "group": "market",
+   "label": {
+    "en": "Average rent increase (CBS, July)",
+    "nl": "Gemiddelde huurverhoging (CBS, juli)"
+   },
+   "unit": "%",
+   "decimals": 1,
+   "store": {
+    "kind": "table",
+    "file": "rent_growth.json",
+    "year_field": "Jaar",
+    "field": "Huurverhoging_t-1"
+   },
+   "used": {
+    "en": "Rent growth, only with CPB-based growth switched off",
+    "nl": "Huurgroei, alleen zonder CPB-gebaseerde groei"
+   },
+   "source": {
+    "name": "CBS",
+    "url": "https://www.cbs.nl/nl-nl/cijfers/detail/70675ned"
+   }
+  },
+  {
+   "id": "cpb_inflation",
+   "group": "macro",
+   "label": {
+    "en": "Inflation (CPB)",
+    "nl": "Inflatie (CPB)"
+   },
+   "unit": "%",
+   "decimals": 1,
+   "scale": 100,
+   "store": {
+    "kind": "series",
+    "key": "cpb_inflation"
+   },
+   "used": {
+    "en": "Growth of rent, costs and property value",
+    "nl": "Groei van huur, kosten en woningwaarde"
+   },
+   "source": {
+    "name": "CPB"
+   },
+   "status": {
+    "2026": "forecast"
+   }
+  },
+  {
+   "id": "cpi",
+   "group": "macro",
+   "label": {
+    "en": "Inflation (CBS, CPI)",
+    "nl": "Inflatie (CBS, CPI)"
+   },
+   "unit": "%",
+   "decimals": 1,
+   "store": {
+    "kind": "table",
+    "file": "cpi.json",
+    "year_field": "Jaar",
+    "field": "Inflatie_t-1"
+   },
+   "used": {
+    "en": "Not used in the IRR; kept for reference",
+    "nl": "Niet gebruikt in de IRR; ter referentie"
+   },
+   "source": {
+    "name": "CBS"
+   },
+   "status": {
+    "2026": "forecast"
+   }
+  },
+  {
+   "id": "mortgage_rate",
+   "group": "finance",
+   "label": {
+    "en": "Mortgage rate, fixed > 10 years",
+    "nl": "Hypotheekrente, > 10 jaar vast"
+   },
+   "unit": "%",
+   "decimals": 2,
+   "store": {
+    "kind": "monthly",
+    "file": "mortgage_rates_all.json",
+    "field": "Interest (>10y)"
+   },
+   "used": {
+    "en": "Loan rate = this + the investor type's spread; January of each year, 2026 per the choice above",
+    "nl": "Leenrente = deze waarde + opslag van het beleggerstype; januari van elk jaar, 2026 volgens de keuze hierboven"
+   },
+   "source": {
+    "name": "DNB",
+    "url": "https://data.ecb.europa.eu/data/datasets/MIR/MIR.M.NL.B.A2C.P.R.A.2250.EUR.N"
+   }
+  },
+  {
+   "id": "transfer_tax",
+   "group": "policy",
+   "label": {
+    "en": "Transfer tax (overdrachtsbelasting)",
+    "nl": "Overdrachtsbelasting"
+   },
+   "unit": "%",
+   "decimals": 1,
+   "store": {
+    "kind": "series",
+    "key": "transfer_tax"
+   },
+   "used": {
+    "en": "Paid once at purchase",
+    "nl": "Eenmalig bij aankoop"
+   },
+   "source": {
+    "name": "Belastingdienst"
+   }
+  },
+  {
+   "id": "rf",
+   "group": "capm",
+   "label": {
+    "en": "Risk-free rate",
+    "nl": "Risicovrije rente"
+   },
+   "unit": "%",
+   "decimals": 2,
+   "store": {
+    "kind": "table",
+    "file": "mkt.json",
+    "year_field": "Year",
+    "field": "Rf"
+   },
+   "used": {
+    "en": "CAPM norm = risk-free rate + β × premium + liquidity premium",
+    "nl": "CAPM-norm = risicovrije rente + β × premie + liquiditeitspremie"
+   },
+   "source": {
+    "name": "DNB"
+   },
+   "status": {
+    "2025": "actual",
+    "2026": "actual"
+   }
+  },
+  {
+   "id": "bond_10y",
+   "group": "capm",
+   "label": {
+    "en": "Dutch 10-year government bond yield",
+    "nl": "Rendement 10-jarige Nederlandse staatsobligatie"
+   },
+   "unit": "%",
+   "decimals": 2,
+   "store": {
+    "kind": "monthly",
+    "file": "nl_bond_10y.json",
+    "field": "Yield"
+   },
+   "used": {
+    "en": "Risk-free rate, per the choice above",
+    "nl": "Risicovrije rente, volgens de keuze hierboven"
+   },
+   "source": {
+    "name": "ECB",
+    "url": "https://data.ecb.europa.eu/data/datasets/IRS/IRS.M.NL.L.L40.CI.0000.EUR.N.Z"
+   }
+  },
+  {
+   "id": "erp",
+   "group": "capm",
+   "label": {
+    "en": "Equity risk premium",
+    "nl": "Aandelenrisicopremie"
+   },
+   "unit": "%",
+   "decimals": 2,
+   "store": {
+    "kind": "table",
+    "file": "mkt.json",
+    "year_field": "Year",
+    "field": "ERP"
+   },
+   "used": {
+    "en": "CAPM norm",
+    "nl": "CAPM-norm"
+   },
+   "source": {
+    "name": "Damodaran"
+   },
+   "status": {
+    "2026": "actual"
+   }
+  },
+  {
+   "id": "beta",
+   "group": "capm",
+   "label": {
+    "en": "β, housing against shares",
+    "nl": "β, wonen ten opzichte van aandelen"
+   },
+   "unit": "",
+   "decimals": 2,
+   "store": {
+    "kind": "table",
+    "file": "mkt.json",
+    "year_field": "Year",
+    "field": "Beta"
+   },
+   "used": {
+    "en": "CAPM norm",
+    "nl": "CAPM-norm"
+   },
+   "source": {}
+  },
+  {
+   "id": "liq",
+   "group": "capm",
+   "label": {
+    "en": "Liquidity premium",
+    "nl": "Liquiditeitspremie"
+   },
+   "unit": "%",
+   "decimals": 2,
+   "store": {
+    "kind": "table",
+    "file": "mkt.json",
+    "year_field": "Year",
+    "field": "LiqPremium"
+   },
+   "used": {
+    "en": "CAPM norm",
+    "nl": "CAPM-norm"
+   },
+   "source": {}
+  }
+ ]
+}

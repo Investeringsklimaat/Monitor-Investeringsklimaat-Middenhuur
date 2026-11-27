@@ -1,0 +1,91 @@
+/* Data tab: same chrome as the rest of the tool (JetBrains Mono, square edges,
+   #333 rules); status of a value is shown by the cell style, explained in the legend. */
+.data-page { max-width: 1500px; margin: 0 auto; padding: 18px 20px 48px; color: #1a1a1a; }
+.data-page h2 { margin: 0; font-size: 20px; font-weight: 700; }
+.data-page h3 { margin: 26px 0 10px; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; display: flex; align-items: center; gap: 10px; }
+.dp-sub { margin: 0; font-size: 13px; color: #444; }
+.dp-download { border: 2px solid #333; background: #333; color: #fff; padding: 8px 16px; font: inherit; font-size: 13px; font-weight: 600; text-decoration: none; cursor: pointer; }
+.dp-download:hover { background: #fff; color: #333; }
+
+.dp-table-wrap { overflow-x: auto; border: 1px solid #333; background: #fff; }
+.dp-table { border-collapse: collapse; width: 100%; font-size: 12px; font-variant-numeric: tabular-nums; }
+.dp-table th, .dp-table td { border-bottom: 1px solid #ececec; padding: 6px 8px; white-space: nowrap; }
+.dp-table thead th { position: sticky; top: 0; background: #f4f4f4; font-size: 11px; font-weight: 600; text-align: right; border-bottom: 1px solid #333; }
+.dp-table td { text-align: right; }
+.dp-table th.dp-name { position: sticky; left: 0; z-index: 1; background: #fff; text-align: left; white-space: normal; min-width: 260px; max-width: 320px; font-weight: 600; }
+.dp-table thead th.dp-name { background: #f4f4f4; z-index: 2; }
+.dp-table th.dp-name small { display: block; font-weight: 400; font-size: 10.5px; color: #666; margin-top: 2px; }
+.dp-table th.dp-name small.dp-src { color: #888; }
+.dp-table .dp-unit { color: #666; text-align: center; font-size: 11px; }
+.dp-group th { background: #fafafa; text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: #333; border-bottom: 1px solid #ccc; padding-top: 10px; }
+.dp-table td[data-series] { cursor: default; }
+
+/* value status */
+.st-forecast { font-style: italic; }
+.st-estimate { font-style: italic; text-decoration: underline dotted; text-underline-offset: 3px; }
+
+.dp-tip { position: fixed; z-index: 50; pointer-events: none; background: #fff; border: 2px solid #333; padding: 8px 10px; font-size: 11.5px; max-width: 340px; box-shadow: 0 8px 22px rgba(0,0,0,.14); display: grid; gap: 3px; }
+.dp-tip[hidden] { display: none; }
+.dp-tip .dp-tip-chg { border-top: 1px solid #e3e3e3; padding-top: 4px; margin-top: 2px; color: #444; }
+
+/* investor types side by side: one merged cell where every type has the same value,
+   one cell per type where they differ. A differing row is marked at its name; a value
+   that differs from the first type is filled. Cells keep the value-status styling. */
+.ic-year { font: inherit; font-size: 12px; padding: 2px 6px; border: 1px solid #999; background: #fff; text-transform: none; letter-spacing: 0; font-weight: 500; }
+.ic-table td { text-align: center; vertical-align: middle; white-space: normal; }
+.ic-table .dp-unit { vertical-align: middle; }
+.ic-table thead th:not(.dp-name):not(.dp-unit) { text-align: center; min-width: 96px; }
+.ic-table th.dp-name { min-width: 220px; }
+.ic-table tr.ic-diff th.dp-name { box-shadow: inset 4px 0 0 #333; background: #fff8db; }
+.ic-table tr.ic-diff td.dp-unit { background: #fff8db; }
+.ic-table td.ic-off { background: #ffe58a !important; }
+.ic-table td.ic-off span { font-weight: 700; }
+.ic-table td.ic-na { color: #aaa; }
+.ic-eff { display: block; margin-top: 2px; font-size: 10.5px; color: #6b6b6b; font-weight: 400; }
+.ic-table tr.ic-res td, .ic-table tr.ic-res th.dp-name { font-weight: 700; color: #1a1a1a; }
+
+/* Sections in reading order, with a sticky bar listing them */
+.data-page { padding-top: 0; }
+.dp-nav {
+  position: sticky; top: 0; z-index: 20;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  margin: 0 -20px 4px; padding: 0 20px;
+  background: #f5f5f5; border-bottom: 2px solid #333;
+}
+.dp-nav-links { display: flex; overflow-x: auto; scrollbar-width: none; }
+.dp-nav-links::-webkit-scrollbar { display: none; }
+.dp-nav-link {
+  padding: 11px 14px 9px; font-size: 12.5px; color: #707070; text-decoration: none; white-space: nowrap;
+  border-bottom: 3px solid transparent; margin-bottom: -2px;
+}
+.dp-nav-link:first-child { padding-left: 0; }
+.dp-nav-link:hover { color: #1a1a1a; }
+.dp-nav-link.on { color: #1a1a1a; font-weight: 700; border-bottom-color: #333; }
+.dp-nav-meta { display: flex; align-items: center; gap: 12px; font-size: 11.5px; color: #707070; white-space: nowrap; }
+.dp-nav-meta .dp-download { padding: 5px 10px; font-size: 12px; border-width: 1px; }
+.dp-section { scroll-margin-top: 56px; }
+.dp-credits { margin: 28px 0 8px; font-size: 11px; line-height: 1.6; color: #8a8a8a; }
+.dp-section h3 { margin-top: 22px; }
+.ic-norm { margin-left: auto; font-size: 12px; font-weight: 500; text-transform: none; letter-spacing: 0; color: #4a4a4a; }
+.ic-norm b { color: #1a1a1a; }
+.dp-top {
+  position: fixed; right: 18px; bottom: 18px; z-index: 40;
+  width: 40px; height: 40px; border: 1px solid #333; background: #fff; color: #1a1a1a;
+  font-size: 18px; cursor: pointer; box-shadow: 0 4px 14px rgba(0,0,0,.14);
+}
+.dp-top:hover { background: #333; color: #fff; }
+.dp-top[hidden] { display: none; }
+@media (max-width: 700px) {
+  .dp-nav { margin: 0 -12px 4px; padding: 0 12px; flex-wrap: wrap; gap: 0 12px; }
+  .dp-nav-links { order: 2; width: 100%; }
+  .dp-nav-meta { order: 1; width: 100%; justify-content: flex-end; padding-top: 6px; }
+  .dp-nav-link { padding: 9px 10px 8px; font-size: 12px; }
+  .dp-section { scroll-margin-top: 90px; }
+  .ic-norm { margin-left: 0; }
+}
+/* every row of the types table differs now: no row tint, only the differing values */
+.ic-table tr.ic-diff th.dp-name, .ic-table tr.ic-diff td.dp-unit { background: #fff; box-shadow: none; }
+@media (max-width: 700px) {
+  .dp-table th.dp-name { min-width: 130px; max-width: 150px; font-size: 11px; }
+  .ic-table th.dp-name { min-width: 120px; }
+}

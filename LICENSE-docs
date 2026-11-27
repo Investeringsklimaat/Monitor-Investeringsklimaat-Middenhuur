@@ -1,0 +1,23 @@
+Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+The documentation in this repository — the README, the comments that describe
+the model, the labels and descriptions of the data series, and the source and
+status notes in data/registry.json — is licensed under the Creative Commons
+Attribution 4.0 International licence.
+
+You are free to share and adapt this material for any purpose, including
+commercially, provided you give appropriate credit, link to the licence, and
+indicate if changes were made.
+
+Attribution:
+
+  Monitor Investeringsklimaat Middenhuur. © 2026 Prof. Dr. Dirk Brounen,
+  Dr. Xudong Sun (Maastricht University) and Prof. Dr. Arno van der Vlist
+  (University of Groningen/Amsterdam School of Real Estate).
+
+The full licence text is at https://creativecommons.org/licenses/by/4.0/legalcode
+and a readable summary at https://creativecommons.org/licenses/by/4.0/
+
+The code in this repository is licensed separately, under the MIT licence; see
+LICENSE. The figures in data/ are published by CBS, DNB, ECB, CPB and the
+Belastingdienst and carry the terms of those bodies.

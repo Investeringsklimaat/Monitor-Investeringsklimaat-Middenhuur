@@ -1,0 +1,60 @@
+{
+ "_note": "Reference values per investor type, mirroring DEFAULT_DCF_SETTINGS and INVESTOR_DCF_SETTINGS in app/routes/main.py. A value names its publisher where it has one; a value without one carries no source line.",
+ "settings": {
+  "institutional": {
+   "ltv": {
+    "value": 0.4
+   },
+   "mortgage_spread": {
+    "value": 0.0153
+   },
+   "period": {
+    "value": 15
+   }
+  },
+  "private": {
+   "ltv": {
+    "value": 0.75,
+    "source": "financieren.nl"
+   },
+   "mortgage_spread": {
+    "value": 0.0153
+   },
+   "period": {
+    "value": 15
+   }
+  },
+  "social": {
+   "ltv": {
+    "value": 0.4,
+    "source": "EY"
+   },
+   "mortgage_spread": {
+    "value": -0.0045,
+    "source": "Credion"
+   },
+   "period": {
+    "value": 30,
+    "source": "Aedes"
+   }
+  },
+  "foreign": {
+   "ltv": {
+    "value": 0.4
+   },
+   "mortgage_spread": {
+    "value": 0.0153
+   },
+   "period": {
+    "value": 15
+   }
+  }
+ },
+ "taxes": {
+  "transfer_tax": "Belastingdienst",
+  "corporate_tax": "Belastingdienst",
+  "vat": "Belastingdienst",
+  "box3": "Belastingdienst",
+  "landlord_levy": "Wetten.overheid.nl"
+ }
+}

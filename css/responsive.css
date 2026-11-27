@@ -1,0 +1,211 @@
+/* responsive.css - Responsive design improvements */
+
+/* Root scaling variables - More compact default */
+:root {
+    --base-font-size: 12px;
+    --container-padding: 12px;
+    --element-gap: 10px;
+}
+
+/* Base responsive scaling */
+body {
+    font-size: var(--base-font-size);
+    padding: var(--container-padding);
+}
+
+/* Scale down for smaller screens */
+@media (max-width: 1400px) {
+    :root {
+        --base-font-size: 11px;
+        --container-padding: 10px;
+        --element-gap: 8px;
+    }
+    
+    body {
+        max-width: 100%;
+        padding: var(--container-padding);
+    }
+}
+
+@media (max-width: 1200px) {
+    :root {
+        --base-font-size: 10px;
+        --container-padding: 8px;
+        --element-gap: 6px;
+    }
+}
+
+/* Tab navigation responsive */
+.tab-navigation {
+    gap: var(--element-gap);
+    flex-wrap: wrap;
+    padding: 8px;
+    margin-bottom: 12px;
+}
+
+.tab-button, .customize-dcf-btn {
+    font-size: clamp(11px, 0.9vw, 13px);
+    padding: clamp(6px, 0.8vw, 9px) clamp(12px, 1.2vw, 16px);
+}
+
+/* Modal responsive sizing - Compact to avoid scrolling */
+.modal-content {
+    width: 85%;
+    max-width: 550px;
+    max-height: 85vh;
+    overflow-y: auto;
+}
+
+.modal-body {
+    padding: clamp(12px, 1.5vw, 20px);
+}
+
+.modal-control-group {
+    margin-bottom: clamp(8px, 1vw, 12px);
+}
+
+.modal-control-group label {
+    font-size: clamp(10px, 0.85vw, 12px);
+    margin-bottom: 4px;
+}
+
+/* Vertical sliders responsive alignment - Short bars, focus on chart */
+.vertical-sliders-container {
+    height: clamp(120px, 12vh, 160px);
+    padding: clamp(8px, 1.2vw, 15px);
+    gap: clamp(2px, 0.4vw, 4px);
+}
+
+/* Chart container responsive - IRR curve is the main focus! */
+.chart-container {
+    height: clamp(450px, 50vh, 600px);
+    padding: clamp(8px, 1.2vw, 15px);
+    margin-bottom: 20px;
+}
+
+/* Make sure canvas fills container properly */
+canvas {
+    max-width: 100% !important;
+    height: auto !important;
+}
+
+/* Button responsive sizing - More compact */
+.button, .modal-button {
+    font-size: clamp(11px, 0.9vw, 13px);
+    padding: clamp(6px, 0.8vw, 10px) clamp(12px, 1.5vw, 18px);
+}
+
+/* Select inputs responsive - More compact */
+.select-input {
+    font-size: clamp(11px, 0.9vw, 13px);
+    padding: clamp(5px, 0.7vw, 8px) clamp(8px, 1vw, 12px);
+}
+
+/* Sensitivity info responsive - More compact */
+.sensitivity-info, .tvp-sensitivity {
+    font-size: clamp(9px, 0.75vw, 11px);
+}
+
+/* Ensure vertical sliders align with chart */
+.time-variants {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Modal header and footer compact */
+.modal-content h2 {
+    font-size: clamp(16px, 1.5vw, 20px);
+    margin-bottom: clamp(12px, 1.5vw, 20px);
+    padding-bottom: clamp(8px, 1vw, 12px);
+}
+
+.modal-content h3 {
+    font-size: clamp(13px, 1.2vw, 16px);
+    margin-top: clamp(12px, 1.5vw, 18px);
+    margin-bottom: clamp(8px, 1vw, 12px);
+}
+
+.modal-footer {
+    padding: clamp(10px, 1.2vw, 15px);
+    gap: clamp(8px, 1vw, 12px);
+}
+
+/* Slider inputs in modal */
+.slider {
+    height: 6px;
+}
+
+/* Firefox-specific responsive adjustments - Short bars */
+@-moz-document url-prefix() {
+    .vertical-slider {
+        width: clamp(70px, 8vh, 110px) !important;
+        margin: clamp(35px, 4vh, 55px) clamp(-35px, -4vh, -55px) !important;
+    }
+}
+
+/* Tablet and below */
+@media (max-width: 768px) {
+    .tab-navigation {
+        flex-direction: column;
+    }
+    
+    .customize-dcf-btn {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+    
+    .vertical-sliders-container {
+        overflow-x: scroll;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .modal-content {
+        width: 95%;
+    }
+}
+
+/* Mobile specific */
+@media (max-width: 480px) {
+    :root {
+        --base-font-size: 11px;
+        --container-padding: 5px;
+        --element-gap: 8px;
+    }
+    
+    .tab-button {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+    
+    .chart-container {
+        height: 350px;
+        padding: 10px;
+    }
+    
+    .vertical-sliders-container {
+        height: 100px;
+    }
+    
+}
+
+/* Print styles */
+@media print {
+    .tab-navigation,
+    .button,
+    .modal {
+        display: none !important;
+    }
+    
+    .chart-container {
+        page-break-inside: avoid;
+    }
+}
+
+/* High DPI screens */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    canvas {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+}
+

@@ -1,0 +1,404 @@
+[
+ {
+  "Jaar": 1960,
+  "Huurverhoging_t-1": 11.0,
+  "Totale_Huurverhoging_t-10": null,
+  "Gemiddelde_Huurverhoging_t-1-10": null
+ },
+ {
+  "Jaar": 1961,
+  "Huurverhoging_t-1": 2.9,
+  "Totale_Huurverhoging_t-10": null,
+  "Gemiddelde_Huurverhoging_t-1-10": null
+ },
+ {
+  "Jaar": 1962,
+  "Huurverhoging_t-1": 2.3,
+  "Totale_Huurverhoging_t-10": null,
+  "Gemiddelde_Huurverhoging_t-1-10": null
+ },
+ {
+  "Jaar": 1963,
+  "Huurverhoging_t-1": 6.0,
+  "Totale_Huurverhoging_t-10": null,
+  "Gemiddelde_Huurverhoging_t-1-10": null
+ },
+ {
+  "Jaar": 1964,
+  "Huurverhoging_t-1": 4.8,
+  "Totale_Huurverhoging_t-10": null,
+  "Gemiddelde_Huurverhoging_t-1-10": null
+ },
+ {
+  "Jaar": 1965,
+  "Huurverhoging_t-1": 4.7,
+  "Totale_Huurverhoging_t-10": null,
+  "Gemiddelde_Huurverhoging_t-1-10": null
+ },
+ {
+  "Jaar": 1966,
+  "Huurverhoging_t-1": 7.7,
+  "Totale_Huurverhoging_t-10": null,
+  "Gemiddelde_Huurverhoging_t-1-10": null
+ },
+ {
+  "Jaar": 1967,
+  "Huurverhoging_t-1": 4.3,
+  "Totale_Huurverhoging_t-10": null,
+  "Gemiddelde_Huurverhoging_t-1-10": null
+ },
+ {
+  "Jaar": 1968,
+  "Huurverhoging_t-1": 7.5,
+  "Totale_Huurverhoging_t-10": null,
+  "Gemiddelde_Huurverhoging_t-1-10": null
+ },
+ {
+  "Jaar": 1969,
+  "Huurverhoging_t-1": 7.0,
+  "Totale_Huurverhoging_t-10": 75.59820433943322,
+  "Gemiddelde_Huurverhoging_t-1-10": 5.82
+ },
+ {
+  "Jaar": 1970,
+  "Huurverhoging_t-1": 5.0,
+  "Totale_Huurverhoging_t-10": 66.10640951027462,
+  "Gemiddelde_Huurverhoging_t-1-10": 5.220000000000001
+ },
+ {
+  "Jaar": 1971,
+  "Huurverhoging_t-1": 8.7,
+  "Totale_Huurverhoging_t-10": 75.46906427373032,
+  "Gemiddelde_Huurverhoging_t-1-10": 5.8
+ },
+ {
+  "Jaar": 1972,
+  "Huurverhoging_t-1": 8.0,
+  "Totale_Huurverhoging_t-10": 85.2459329576039,
+  "Gemiddelde_Huurverhoging_t-1-10": 6.369999999999999
+ },
+ {
+  "Jaar": 1973,
+  "Huurverhoging_t-1": 8.8,
+  "Totale_Huurverhoging_t-10": 90.13922175271045,
+  "Gemiddelde_Huurverhoging_t-1-10": 6.65
+ },
+ {
+  "Jaar": 1974,
+  "Huurverhoging_t-1": 6.9,
+  "Totale_Huurverhoging_t-10": 93.94926340996896,
+  "Gemiddelde_Huurverhoging_t-1-10": 6.859999999999999
+ },
+ {
+  "Jaar": 1975,
+  "Huurverhoging_t-1": 6.2,
+  "Totale_Huurverhoging_t-10": 96.72790615223212,
+  "Gemiddelde_Huurverhoging_t-1-10": 7.01
+ },
+ {
+  "Jaar": 1976,
+  "Huurverhoging_t-1": 10.7,
+  "Totale_Huurverhoging_t-10": 102.2077921174754,
+  "Gemiddelde_Huurverhoging_t-1-10": 7.31
+ },
+ {
+  "Jaar": 1977,
+  "Huurverhoging_t-1": 7.7,
+  "Totale_Huurverhoging_t-10": 108.7994171721198,
+  "Gemiddelde_Huurverhoging_t-1-10": 7.65
+ },
+ {
+  "Jaar": 1978,
+  "Huurverhoging_t-1": 7.5,
+  "Totale_Huurverhoging_t-10": 108.7994171721198,
+  "Gemiddelde_Huurverhoging_t-1-10": 7.65
+ },
+ {
+  "Jaar": 1979,
+  "Huurverhoging_t-1": 5.8,
+  "Totale_Huurverhoging_t-10": 106.4577414655166,
+  "Gemiddelde_Huurverhoging_t-1-10": 7.530000000000001
+ },
+ {
+  "Jaar": 1980,
+  "Huurverhoging_t-1": 7.2,
+  "Totale_Huurverhoging_t-10": 110.7835227152703,
+  "Gemiddelde_Huurverhoging_t-1-10": 7.75
+ },
+ {
+  "Jaar": 1981,
+  "Huurverhoging_t-1": 7.8,
+  "Totale_Huurverhoging_t-10": 109.0383049558982,
+  "Gemiddelde_Huurverhoging_t-1-10": 7.659999999999999
+ },
+ {
+  "Jaar": 1982,
+  "Huurverhoging_t-1": 8.4,
+  "Totale_Huurverhoging_t-10": 109.8125209001794,
+  "Gemiddelde_Huurverhoging_t-1-10": 7.7
+ },
+ {
+  "Jaar": 1983,
+  "Huurverhoging_t-1": 6.8,
+  "Totale_Huurverhoging_t-10": 105.9556730895143,
+  "Gemiddelde_Huurverhoging_t-1-10": 7.5
+ },
+ {
+  "Jaar": 1984,
+  "Huurverhoging_t-1": 3.6,
+  "Totale_Huurverhoging_t-10": 99.59782724110084,
+  "Gemiddelde_Huurverhoging_t-1-10": 7.17
+ },
+ {
+  "Jaar": 1985,
+  "Huurverhoging_t-1": 3.4,
+  "Totale_Huurverhoging_t-10": 94.33536098615656,
+  "Gemiddelde_Huurverhoging_t-1-10": 6.889999999999999
+ },
+ {
+  "Jaar": 1986,
+  "Huurverhoging_t-1": 2.6,
+  "Totale_Huurverhoging_t-10": 80.11570042619387,
+  "Gemiddelde_Huurverhoging_t-1-10": 6.08
+ },
+ {
+  "Jaar": 1987,
+  "Huurverhoging_t-1": 3.0,
+  "Totale_Huurverhoging_t-10": 72.25549808633215,
+  "Gemiddelde_Huurverhoging_t-1-10": 5.609999999999999
+ },
+ {
+  "Jaar": 1988,
+  "Huurverhoging_t-1": 3.6,
+  "Totale_Huurverhoging_t-10": 66.00622885343267,
+  "Gemiddelde_Huurverhoging_t-1-10": 5.22
+ },
+ {
+  "Jaar": 1989,
+  "Huurverhoging_t-1": 3.2,
+  "Totale_Huurverhoging_t-10": 61.92668069635401,
+  "Gemiddelde_Huurverhoging_t-1-10": 4.96
+ },
+ {
+  "Jaar": 1990,
+  "Huurverhoging_t-1": 3.3,
+  "Totale_Huurverhoging_t-10": 56.03569137997542,
+  "Gemiddelde_Huurverhoging_t-1-10": 4.569999999999999
+ },
+ {
+  "Jaar": 1991,
+  "Huurverhoging_t-1": 5.9,
+  "Totale_Huurverhoging_t-10": 53.28552613301851,
+  "Gemiddelde_Huurverhoging_t-1-10": 4.38
+ },
+ {
+  "Jaar": 1992,
+  "Huurverhoging_t-1": 5.6,
+  "Totale_Huurverhoging_t-10": 49.32612139895527,
+  "Gemiddelde_Huurverhoging_t-1-10": 4.1
+ },
+ {
+  "Jaar": 1993,
+  "Huurverhoging_t-1": 5.4,
+  "Totale_Huurverhoging_t-10": 47.36866287874426,
+  "Gemiddelde_Huurverhoging_t-1-10": 3.96
+ },
+ {
+  "Jaar": 1994,
+  "Huurverhoging_t-1": 5.1,
+  "Totale_Huurverhoging_t-10": 49.50237904011605,
+  "Gemiddelde_Huurverhoging_t-1-10": 4.11
+ },
+ {
+  "Jaar": 1995,
+  "Huurverhoging_t-1": 4.5,
+  "Totale_Huurverhoging_t-10": 51.09282988096832,
+  "Gemiddelde_Huurverhoging_t-1-10": 4.22
+ },
+ {
+  "Jaar": 1996,
+  "Huurverhoging_t-1": 4.1,
+  "Totale_Huurverhoging_t-10": 53.30178938215204,
+  "Gemiddelde_Huurverhoging_t-1-10": 4.37
+ },
+ {
+  "Jaar": 1997,
+  "Huurverhoging_t-1": 3.8,
+  "Totale_Huurverhoging_t-10": 54.49248289191632,
+  "Gemiddelde_Huurverhoging_t-1-10": 4.45
+ },
+ {
+  "Jaar": 1998,
+  "Huurverhoging_t-1": 3.4,
+  "Totale_Huurverhoging_t-10": 54.19423485544541,
+  "Gemiddelde_Huurverhoging_t-1-10": 4.430000000000001
+ },
+ {
+  "Jaar": 1999,
+  "Huurverhoging_t-1": 3.0,
+  "Totale_Huurverhoging_t-10": 53.89540881890387,
+  "Gemiddelde_Huurverhoging_t-1-10": 4.41
+ },
+ {
+  "Jaar": 2000,
+  "Huurverhoging_t-1": 2.6,
+  "Totale_Huurverhoging_t-10": 52.85255512894036,
+  "Gemiddelde_Huurverhoging_t-1-10": 4.34
+ },
+ {
+  "Jaar": 2001,
+  "Huurverhoging_t-1": 2.7,
+  "Totale_Huurverhoging_t-10": 48.23378103628113,
+  "Gemiddelde_Huurverhoging_t-1-10": 4.02
+ },
+ {
+  "Jaar": 2002,
+  "Huurverhoging_t-1": 2.9,
+  "Totale_Huurverhoging_t-10": 44.44371277114894,
+  "Gemiddelde_Huurverhoging_t-1-10": 3.75
+ },
+ {
+  "Jaar": 2003,
+  "Huurverhoging_t-1": 3.2,
+  "Totale_Huurverhoging_t-10": 41.4287586146354,
+  "Gemiddelde_Huurverhoging_t-1-10": 3.53
+ },
+ {
+  "Jaar": 2004,
+  "Huurverhoging_t-1": 3.1,
+  "Totale_Huurverhoging_t-10": 38.73744065812475,
+  "Gemiddelde_Huurverhoging_t-1-10": 3.330000000000001
+ },
+ {
+  "Jaar": 2005,
+  "Huurverhoging_t-1": 2.0,
+  "Totale_Huurverhoging_t-10": 35.41836313041842,
+  "Gemiddelde_Huurverhoging_t-1-10": 3.08
+ },
+ {
+  "Jaar": 2006,
+  "Huurverhoging_t-1": 2.7,
+  "Totale_Huurverhoging_t-10": 33.59717476939457,
+  "Gemiddelde_Huurverhoging_t-1-10": 2.94
+ },
+ {
+  "Jaar": 2007,
+  "Huurverhoging_t-1": 1.4,
+  "Totale_Huurverhoging_t-10": 30.50822275160505,
+  "Gemiddelde_Huurverhoging_t-1-10": 2.7
+ },
+ {
+  "Jaar": 2008,
+  "Huurverhoging_t-1": 1.9,
+  "Totale_Huurverhoging_t-10": 28.61497000375777,
+  "Gemiddelde_Huurverhoging_t-1-10": 2.55
+ },
+ {
+  "Jaar": 2009,
+  "Huurverhoging_t-1": 2.8,
+  "Totale_Huurverhoging_t-10": 28.36523219792522,
+  "Gemiddelde_Huurverhoging_t-1-10": 2.53
+ },
+ {
+  "Jaar": 2010,
+  "Huurverhoging_t-1": 1.6,
+  "Totale_Huurverhoging_t-10": 27.11410907708775,
+  "Gemiddelde_Huurverhoging_t-1-10": 2.43
+ },
+ {
+  "Jaar": 2011,
+  "Huurverhoging_t-1": 1.8,
+  "Totale_Huurverhoging_t-10": 26.00015875411428,
+  "Gemiddelde_Huurverhoging_t-1-10": 2.34
+ },
+ {
+  "Jaar": 2012,
+  "Huurverhoging_t-1": 2.8,
+  "Totale_Huurverhoging_t-10": 25.87770962024245,
+  "Gemiddelde_Huurverhoging_t-1-10": 2.33
+ },
+ {
+  "Jaar": 2013,
+  "Huurverhoging_t-1": 4.7,
+  "Totale_Huurverhoging_t-10": 27.70732749262969,
+  "Gemiddelde_Huurverhoging_t-1-10": 2.48
+ },
+ {
+  "Jaar": 2014,
+  "Huurverhoging_t-1": 4.4,
+  "Totale_Huurverhoging_t-10": 29.31760417294411,
+  "Gemiddelde_Huurverhoging_t-1-10": 2.61
+ },
+ {
+  "Jaar": 2015,
+  "Huurverhoging_t-1": 2.4,
+  "Totale_Huurverhoging_t-10": 29.82473203244587,
+  "Gemiddelde_Huurverhoging_t-1-10": 2.65
+ },
+ {
+  "Jaar": 2016,
+  "Huurverhoging_t-1": 1.9,
+  "Totale_Huurverhoging_t-10": 28.81343908574716,
+  "Gemiddelde_Huurverhoging_t-1-10": 2.57
+ },
+ {
+  "Jaar": 2017,
+  "Huurverhoging_t-1": 1.6,
+  "Totale_Huurverhoging_t-10": 29.06750898532458,
+  "Gemiddelde_Huurverhoging_t-1-10": 2.59
+ },
+ {
+  "Jaar": 2018,
+  "Huurverhoging_t-1": 2.3,
+  "Totale_Huurverhoging_t-10": 29.57415278899616,
+  "Gemiddelde_Huurverhoging_t-1-10": 2.63
+ },
+ {
+  "Jaar": 2019,
+  "Huurverhoging_t-1": 2.5,
+  "Totale_Huurverhoging_t-10": 29.19601810186874,
+  "Gemiddelde_Huurverhoging_t-1-10": 2.6
+ },
+ {
+  "Jaar": 2020,
+  "Huurverhoging_t-1": 2.9,
+  "Totale_Huurverhoging_t-10": 30.84911675868396,
+  "Gemiddelde_Huurverhoging_t-1-10": 2.73
+ },
+ {
+  "Jaar": 2021,
+  "Huurverhoging_t-1": 0.8,
+  "Totale_Huurverhoging_t-10": 29.56376197716444,
+  "Gemiddelde_Huurverhoging_t-1-10": 2.63
+ },
+ {
+  "Jaar": 2022,
+  "Huurverhoging_t-1": 3.0,
+  "Totale_Huurverhoging_t-10": 29.81583155299552,
+  "Gemiddelde_Huurverhoging_t-1-10": 2.65
+ },
+ {
+  "Jaar": 2023,
+  "Huurverhoging_t-1": 2.0,
+  "Totale_Huurverhoging_t-10": 26.46814535248847,
+  "Gemiddelde_Huurverhoging_t-1-10": 2.38
+ },
+ {
+  "Jaar": 2024,
+  "Huurverhoging_t-1": 5.4,
+  "Totale_Huurverhoging_t-10": 27.67952605509849,
+  "Gemiddelde_Huurverhoging_t-1-10": 2.48
+ },
+ {
+  "Jaar": 2025,
+  "Huurverhoging_t-1": 4.9,
+  "Totale_Huurverhoging_t-10": 27.67952605509849,
+  "Gemiddelde_Huurverhoging_t-1-10": 2.48
+ },
+ {
+  "Jaar": 2026,
+  "Huurverhoging_t-1": 4.4,
+  "Totale_Huurverhoging_t-10": null,
+  "Gemiddelde_Huurverhoging_t-1-10": null
+ }
+]
