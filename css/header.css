@@ -82,19 +82,8 @@
 
 /* ---------- analysis bar ---------- */
 
-/* Where the code is: one small grey line in the gap above the analysis bar,
-   which is shortened by as much as the line takes, so nothing below it moves. */
-.hv-source {
-    margin: 6px 0 0;
-    padding: 0 2px;
-    font-size: 11px;
-    line-height: 1.3;
-    color: #8a8a8a;
-}
-.hv-source a { color: inherit; }
-
 .hv-lens {
-    margin: 6px 0 0;
+    margin: 12px 0 0;
     padding: 12px 14px 10px;
     background: #fff;
     border: 1px solid #333;

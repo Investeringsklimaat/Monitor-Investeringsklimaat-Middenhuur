@@ -412,6 +412,9 @@ body {
 /* the one line under the main chart that says what the dots are: under the
    card, so the card keeps its fixed height and the chart its size */
 .chart-note { margin: -14px 2px 18px; font-size: 10.5px; line-height: 1.4; color: #8a8a8a; }
+/* Where the code is, in the same small grey type as the note above it */
+.hv-source { margin: -10px 2px 18px; font-size: 10.5px; line-height: 1.4; color: #8a8a8a; }
+.hv-source a { color: inherit; }
 
 /* The main IRR chart is an ECharts div; the 3-year window keeps its canvas. */
 .chart-container #returnChart {
