@@ -8,11 +8,14 @@ let controls = null;
 let stateManager = null;
 let updateIRRData = null;
 let updateTaxRegimeReadout = null;
+let resetDcf = null;
 
-// The page's element and control references, its state manager, and the two
-// page functions the panel calls: the recalculation and the tax readout.
+// The page's element and control references, its state manager, and the three
+// page functions the panel calls: the recalculation, the tax readout, and the
+// panel's own settings back to the investor type's defaults.
 export function initDcfModal(page) {
-  ({ elements, controls, stateManager, updateIRRData, updateTaxRegimeReadout } = page);
+  ({ elements, controls, stateManager, updateIRRData, updateTaxRegimeReadout,
+     resetDcf } = page);
 }
 
 // Initialize modal functionality
@@ -44,6 +47,15 @@ export function initializeModal() {
     });
   }
   
+  // The panel's settings back to the investor type's defaults. It touches
+  // nothing else: the per-year edits stay as the reader left them, and the
+  // page-wide reset beside the editor is still the one that clears those.
+  if (elements.resetDcf) {
+    elements.resetDcf.addEventListener('click', async () => {
+      await resetDcf();
+    });
+  }
+
   // Apply changes button
   if (elements.applyDcfChanges) {
     elements.applyDcfChanges.addEventListener('click', async () => {

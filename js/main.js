@@ -71,7 +71,8 @@ window.HV = { investorType: activeType };
 initSensitivity({ elements, controls, stateManager, investorType: activeType });
 initTabs({ elements, controls, stateManager });
 initInvestorType({ controls, stateManager, updateIRRData, updateRequiredReturnData });
-initDcfModal({ elements, controls, stateManager, updateIRRData, updateTaxRegimeReadout });
+initDcfModal({ elements, controls, stateManager, updateIRRData, updateTaxRegimeReadout,
+               resetDcf: resetDcfPanel });
 
 // Initialize application
 document.addEventListener('DOMContentLoaded', async () => {
@@ -188,6 +189,33 @@ function firstPaint() {
   };
 }
 
+/**
+ * The quick DCF panel back to what this investor type starts on.
+ *
+ * Only what the panel holds: the loan share, the spread and the holding period
+ * the type brings with it, and the shared defaults for the rest. The per-year
+ * edits are not touched — the reset beside the editor is still the one that
+ * clears those — so the chart lands where a fresh page would put it for this
+ * type with nothing else edited.
+ */
+async function resetDcfPanel() {
+  if (controls.opcostSlider) controls.opcostSlider.setValue(defaultValues.opcost);
+  if (controls.rentSpreadSlider) controls.rentSpreadSlider.setValue(1.0);
+  if (controls.longtermInflationSlider) controls.longtermInflationSlider.setValue(2.2);
+  if (elements.useCpbExitCheckbox) elements.useCpbExitCheckbox.checked = true;
+  if (controls.betaSlider) controls.betaSlider.setValue(defaultValues.beta / 100);
+  if (controls.liqPremiumSlider) controls.liqPremiumSlider.setValue(defaultValues.liqPremium / 100);
+
+  // The state manager holds what every calculation reads, so it is put back
+  // first and the type's own spread lands on top of it.
+  stateManager.resetDCFParams();
+  applyInvestorDefaults(activeType());
+
+  await updateIRRData();
+  await updateRequiredReturnData();
+  await updateTaxRegimeReadout();
+}
+
 // Recalculate everything that depends on the investor type's settings.
 async function recalculateForInvestorType() {
   await updateIRRData();
@@ -287,6 +315,7 @@ function getUIReferences() {
   elements.closeModal = document.querySelector('.close-modal');
   elements.applyDcfChanges = document.getElementById('apply-dcf-changes');
   elements.cancelDcfChanges = document.getElementById('cancel-dcf-changes');
+  elements.resetDcf = document.getElementById('reset-dcf');
 
   // Time variant elements
   elements.timeVariantParam = document.getElementById('time-variant-param');
